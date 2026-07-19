@@ -55,4 +55,13 @@ public class SinglePlayerGame extends Game {
     public Level getLevel() {
         return level;
     }
+    @Override
+    public void levelLost() {
+        player.loseLife();
+        if (player.getLives() > 0) {
+            level.respawn(player);
+        } else {
+            stop();
+        }
+    }
 }
