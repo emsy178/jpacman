@@ -1,4 +1,4 @@
-package nl.tudelft.jpacman.jpacman.game;
+package nl.tudelft.jpacman.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
