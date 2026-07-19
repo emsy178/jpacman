@@ -178,12 +178,14 @@ public class Launcher {
      */
     public void launch() {
         makeGame();
-        PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
+        PacManUiBuilder builder = new PacManUiBuilder()
+            .withDefaultButtons()
+            .withScoreFormatter(player ->
+                String.format("Score: %3d   Lives: %d", player.getScore(), player.getLives()));
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame());
         pacManUI.start();
     }
-
     /**
      * Disposes of the UI. For more information see
      * {@link javax.swing.JFrame#dispose()}.
