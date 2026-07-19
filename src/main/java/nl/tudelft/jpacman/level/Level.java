@@ -372,4 +372,17 @@ public class Level {
          */
         void levelLost();
     }
+    /**
+     * Brings a registered player back to life on its starting square.
+     *
+     * @param player
+     *            The player to respawn. Must already be registered.
+     */
+    public void respawn(Player player) {
+        assert player != null;
+        assert players.contains(player);
+
+        player.setAlive(true);
+        player.occupy(startSquares.get(players.indexOf(player) % startSquares.size()));
+    }
 }
