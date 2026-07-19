@@ -13,7 +13,15 @@ import nl.tudelft.jpacman.sprite.Sprite;
  * @author Jeroen Roosen 
  */
 public class Player extends Unit {
+    /**
+     * The number of lives a player starts the game with.
+     */
+    private static final int DEFAULT_LIVES = 3;
 
+    /**
+     * The number of lives this player has left.
+     */
+    private int lives;
     /**
      * The amount of points accumulated by this player.
      */
@@ -52,6 +60,7 @@ public class Player extends Unit {
         this.alive = true;
         this.sprites = spriteMap;
         this.deathSprite = deathAnimation;
+        this.lives = DEFAULT_LIVES;
         deathSprite.setAnimating(false);
     }
 
@@ -128,4 +137,20 @@ public class Player extends Unit {
     public void addPoints(int points) {
         score += points;
     }
+    /**
+     * @return the number of lives this player has left.
+     */
+    public int getLives() {
+        return lives;
+    }
+
+    /**
+     * Removes one life, down to a minimum of 0.
+     */
+    public void loseLife() {
+        if (lives > 0) {
+            lives--;
+        }
+    }
 }
+
